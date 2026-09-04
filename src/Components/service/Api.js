@@ -1,11 +1,11 @@
 import axios from "axios"
 
 async function getData() {
-    const res = await axios.get('http://localhost:3000/api/Product')
+    const res = await axios.get('https://bahar-store-api.vercel.app/api/Product')
     return res.data
 }
 async function getCategory() {
-    const res = await axios.get('http://localhost:3000/api/Category')
+    const res = await axios.get('https://bahar-store-api.vercel.app/api/Category')
     return res.data
 }
 export {getData, getCategory}
