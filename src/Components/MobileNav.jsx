@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import React, { useContext, useState, useEffect } from "react";
 import { Link, useLocation } from "react-router";
 import { HiSquares2X2 } from "react-icons/hi2";
 import { GoHeart } from "react-icons/go";
@@ -11,6 +11,23 @@ function MobileNav() {
   const { sebet } = useContext(BASKET);
   const { favorites } = useContext(FAVORITES);
   const location = useLocation();
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
+
+  useEffect(() => {
+    const checkMobileMenu = () => {
+      // Header-dəki mobil menyunun açıq olub-olmadığını (translate-x-0 sinifini) yoxlayır
+      const openMenuElement = document.querySelector(".translate-x-0.fixed.inset-x-0");
+      setIsMenuOpen(!!openMenuElement);
+    };
+
+    const observer = new MutationObserver(checkMobileMenu);
+    observer.observe(document.body, { childList: true, subtree: true, attributes: true });
+
+    return () => observer.disconnect();
+  }, []);
+
+  // Əgər menyu açıqdırsa, MobileNav gizlənir
+  if (isMenuOpen) return null;
 
   const basketCount = sebet?.length || 0;
   const favoriteCount = favorites?.length || 0;

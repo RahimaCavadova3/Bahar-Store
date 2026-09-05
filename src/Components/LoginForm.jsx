@@ -26,19 +26,23 @@ function LoginForm({ setLogin }) {
                      <div>
                         <label htmlFor="phone"
                            className="mb-2 text-[#b3b3b4] font-medium text-[12px] inline-block">Nömrə</label>
-                        <input 
-                           type="tel" 
-                           id="phone" 
-                           name="phone" 
-                           placeholder="+994" 
-                           autoComplete="tel" 
-                           maxLength={9} 
-                           required 
-                           value={phone}
-                           onInput={(e) => e.target.value = e.target.value.replace(/[^0-9]/g, '')}
-                           onChange={(e) => setPhone(e.target.value)}
-                           className="px-3 py-2.5 text-sm text-slate-900 rounded-md bg-[#f4f4f4] outline-0 w-full" 
-                        />
+                        <div className="flex items-center rounded-md bg-[#f4f4f4] overflow-hidden">
+                           <span className="pl-3 text-sm text-slate-700 font-medium select-none">
+                              +994
+                           </span>
+                           <input 
+                              type="tel" 
+                              id="phone" 
+                              name="phone" 
+                              autoComplete="tel" 
+                              maxLength={9} 
+                              required 
+                              value={phone}
+                              onInput={(e) => e.target.value = e.target.value.replace(/[^0-9]/g, '')}
+                              onChange={(e) => setPhone(e.target.value)}
+                              className="px-2 py-2.5 text-sm text-slate-900 bg-transparent outline-0 w-full" 
+                           />
+                        </div>
                      </div>
                      <div>
                         <label htmlFor="password"

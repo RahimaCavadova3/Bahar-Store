@@ -52,8 +52,6 @@ function ProductCard({ item }) {
   return (
     <Link
       to={`/mehsul/${slugify(item.title)}`}
-      target="_blank"
-      rel="noopener noreferrer"
       className="border h-[500px] xl:h-[450px] relative hover:shadow-xl duration-300 flex flex-col gap-3 rounded-2xl border-[#eae1e1] p-5"
     >
       <div className="flex md:hidden flex-wrap items-center gap-1.5 mb-1">
